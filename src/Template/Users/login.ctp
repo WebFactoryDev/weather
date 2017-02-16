@@ -1,5 +1,5 @@
 
-<img src="/weather/img/blurred-bg-3.jpg" class="login-img wow fadeIn" alt="">
+<img src="/weather/img/hr.jpg" class="login-img wow fadeIn" alt="">
 
 
 <div class="center-vertical">
