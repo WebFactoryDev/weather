@@ -1,4 +1,3 @@
-
 <img src="/weather/img/hr.jpg" class="login-img wow fadeIn" alt="">
 
 
