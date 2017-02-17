@@ -31,7 +31,7 @@ $cakeDescription = 'SX Clima';
         <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
     </title>
-    <!-- <?= $this->Html->meta('icon') ?> -->
+    <!-- <?= $this->Html->meta('icon') ?> --> 
 
     <?= $this->Html->css([
         'assets/helpers/animate.css',
