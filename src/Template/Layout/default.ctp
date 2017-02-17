@@ -25,6 +25,7 @@ $cakeDescription = 'SX Clima';
     </style>
     <?= $this->Html->charset() ?>
     <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>
