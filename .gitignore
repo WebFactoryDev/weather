@@ -2,3 +2,7 @@
 /config/app.php
 /tmp/*
 /logs/*
+/tmp/debug_kit.sqlite
+/*.htaccess
+/tmp/cache
+/config/Migrations
