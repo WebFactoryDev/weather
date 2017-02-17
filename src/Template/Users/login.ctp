@@ -1,3 +1,32 @@
+    <div id="loading">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <style type="text/css">
+
+        html,body {
+            height: 100%;
+            background: #fff;
+            overflow: hidden;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+        /* WOW animations */
+
+        wow = new WOW({
+            animateClass: 'animated',
+            offset: 100
+        });
+        wow.init();
+    </script>
+
+
 <img src="/weather/img/hr.jpg" class="login-img wow fadeIn" alt="">
 
 
