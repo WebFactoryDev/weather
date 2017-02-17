@@ -26,7 +26,7 @@
         <div id="header-nav-left">
         <div class="user-account-btn dropdown">
             <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown">
-                <img width="28" src="/img/image-resources/gravatar.jpg" alt="Profile image">
+                <img width="28" src="/weather/img/image-resources/gravatar.jpg" alt="Profile image">
                 <span>Roberto</span>
                 <i class="glyph-icon icon-angle-down"></i>
             </a>
@@ -35,7 +35,7 @@
                     <div class="login-box clearfix">
                         <div class="user-img">
                             <a href="#" title="" class="change-img">Change photo</a>
-                            <img src="/img/image-resources/gravatar.jpg" alt="">
+                            <img src="/weather/img/image-resources/gravatar.jpg" alt="">
                         </div>
                         <div class="user-info">
                             <span>
@@ -100,7 +100,7 @@
         <div class="sidebar-submenu">
 
             <ul>
-                <li><a href="/projects/nuevo" title="Nuevo"><span>Nuevo</span></a></li>
+                <li><a href="/weather/projects/nuevo" title="Nuevo"><span>Nuevo</span></a></li>
                 <li><a href="#" title="Activos"><span>Activos</span></a></li>
                 <li><a href="#" title="Hist&oacute;rico"><span>Hist&oacute;rico</span></a></li>
                 
