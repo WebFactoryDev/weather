@@ -47,5 +47,24 @@ class ProyectsTable extends Table
         }
         return $tabla1;
     }
+    public function insertacl($ncomercial){
+        $tabla = ConnectionManager::get('default');
+        // Saber si ya existe esa razon comercial.
+        $reg = $tabla->execute("SELECT * FROM Clientes WHERE nombre_comercial='$ncomercial'")->fetchAll('assoc');
+        if(count($reg)>0){
+            // Ya existe ese nombre
+            return -$reg[0]['id'];
+        } else {
+            // Buscar el maximo id. Esto porque no
+            // hemos puesto AUTO_INCREMENT en el id.
+            $id0 = $tabla->execute("SELECT MAX(id) AS m_id FROM Clientes")->fetchAll('assoc');
+            $id0 = $id0[0]['m_id'];
+            $id0++;
+            
+            // Ahora si lo va a insertar.
+            $tabla->execute("INSERT INTO `clientes`(`id`, `nombre_comercial`, `razon_social`, `rfc`) VALUES ($id0,'$ncomercial','','');");
+        }
+        return $id0;
+    }
 }
 ?>
