@@ -41,33 +41,23 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        // $this->loadComponent('RequestHandler');
+        $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-        // $this->loadComponent('Auth', [
-        //     'authorize' => ['Controller'],
-        //     'authenticate' => [
-        //         'Form' => [
-        //             'fields' => [
-        //                 'username' => 'username',
-        //                 'password' => 'password'
-        //             ]
-        //         ]
-        //     ],
-        //     'loginAction' => [
-        //         'controller' => 'Users',
-        //         'action' => 'login'
-        //     ],
-        //     'authError' => 'Los datos son incorrectos',
-        //     'loginRedirect' => [
-        //         'controller' => 'Users',
-        //         'action' => 'home'
-        //     ],
-        //     'logoutRedirect' => [
-        //         'controller' => 'Users',
-        //         'action' => 'login'
-        //     ]
-        // ]);
         $this->loadComponent('Auth', [
+            'authorize' => ['Controller'],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => [
+                        'username' => 'username',
+                        'password' => 'password'
+                    ]
+                ]
+            ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login'
+            ],
+            'authError' => 'Los datos son incorrectos',
             'loginRedirect' => [
                 'controller' => 'Users',
                 'action' => 'home'
@@ -77,6 +67,16 @@ class AppController extends Controller
                 'action' => 'login'
             ]
         ]);
+        // $this->loadComponent('Auth', [
+        //     'loginRedirect' => [
+        //         'controller' => 'Users',
+        //         'action' => 'home'
+        //     ],
+        //     'logoutRedirect' => [
+        //         'controller' => 'Users',
+        //         'action' => 'login'
+        //     ]
+        // ]);
 
        
         /*
