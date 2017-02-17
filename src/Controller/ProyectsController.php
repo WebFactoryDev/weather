@@ -61,5 +61,75 @@ class ProyectsController extends AppController
         print_r($_POST);
         echo "</pre>";
     }
+    public function muestraproysactivos(){
+        // Esta funcion muestra una tabla con proyectos
+        // activos.
+        
+        // Para fines de depuracion rapida pongo esto:
+        $this->autoRender = false;
+        $proysactiv = $this->Proyects->getProys(true);
+        
+        // Confeccionar la tabla.
+        $colsdb = ['id','nombre_comercial','tipo','f_inicio','f_final','estatus'];
+        $colsvt = ['ID','Cliente','Tipo','Fecha Inicio','Fecha Final','Estatus'];
+        $htmltabla = "<table id='latabla'>";
+        // encabezado.
+        $rngtabla = "<tr>";
+        foreach($colsvt as $col){
+            $rngtabla .= "<th>$col</th>";
+        }
+        $rngtabla .= "</tr>";
+        $htmltabla .= $rngtabla;
+        // datos.
+        foreach($proysactiv as $regproy){
+            $rngtabla = "<tr>";
+            foreach($colsdb as $kc){
+                $rngtabla .= "<td>".$regproy[$kc]."</td>";
+            }
+            $rngtabla .= "</tr>";
+            $htmltabla .= $rngtabla;
+            
+        }
+        $htmltabla .= "</table>";
+        // este echo se va al template, quitando el autoRender
+        echo $htmltabla;
+    }
+    public function muestraproys(){
+        // Esta funcion muestra una tabla con proyectos
+        // activos.
+        
+        // Para fines de depuracion rapida pongo esto:
+        $this->autoRender = false;
+        $proysactiv = $this->Proyects->getProys(false);
+        
+        // Confeccionar la tabla.
+        $colsdb = ['id','nombre_comercial','tipo','f_inicio','f_final','estatus'];
+        $colsvt = ['ID','Cliente','Tipo','Fecha Inicio','Fecha Final','Estatus'];
+        $htmltabla = "<table id='latabla'>";
+        // encabezado.
+        $rngtabla = "<tr>";
+        foreach($colsvt as $col){
+            $rngtabla .= "<th>$col</th>";
+        }
+        $rngtabla .= "</tr>";
+        $htmltabla .= $rngtabla;
+        // datos.
+        foreach($proysactiv as $regproy){
+            $rngtabla = "<tr>";
+            foreach($colsdb as $kc){
+                $rngtabla .= "<td>".$regproy[$kc]."</td>";
+            }
+            $rngtabla .= "</tr>";
+            $htmltabla .= $rngtabla;
+            
+        }
+        $htmltabla .= "</table>";
+        // este echo se va al template, quitando el autoRender
+        echo $htmltabla;
+    }
+    public function nuevoclientefast(){
+        // funcion rápida para agregar nuevo cliente.
+        
+    }
 }
 ?>
