@@ -27,7 +27,7 @@
     </script>
 
 
-<img src="/img/hr.jpg" class="login-img wow fadeIn" alt="">
+<img src="/weather/img/hr.jpg" class="login-img wow fadeIn" alt="">
 
 
 <div class="center-vertical">
