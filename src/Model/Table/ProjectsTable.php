@@ -12,14 +12,14 @@ class ProjectsTable extends Table
     public function getClientes(){
         //$lc = [[10,'BBVA Bancomer'],[11,'Google'],[12,'Pepe y Tonhio SA']];
         $tabla = ConnectionManager::get('default');
-        $lc = $tabla->execute("SELECT id,nombre_comercial FROM Clientes")->fetchAll('assoc');
+        $lc = $tabla->execute("SELECT id,nombre_comercial FROM clientes")->fetchAll('assoc');
         //$lc = TableRegistry::get('Clientes')->find()->toArray();
         return $lc;
     }
     public function getClienteId($id){
         
         $tabla = ConnectionManager::get('default');
-        $nombre = $tabla->execute("SELECT nombre_comercial FROM Clientes WHERE id=$id")->fetchAll('assoc');
+        $nombre = $tabla->execute("SELECT nombre_comercial FROM clientes WHERE id=$id")->fetchAll('assoc');
         
         return $nombre;
     }
@@ -66,7 +66,7 @@ class ProjectsTable extends Table
         } else {
             // Buscar el maximo id. Esto porque no
             // hemos puesto AUTO_INCREMENT en el id.
-            $id0 = $tabla->execute("SELECT MAX(id) AS m_id FROM Clientes")->fetchAll('assoc');
+            $id0 = $tabla->execute("SELECT MAX(id) AS m_id FROM clientes")->fetchAll('assoc');
             $id0 = $id0[0]['m_id'];
             $id0++;
             
@@ -94,7 +94,7 @@ class ProjectsTable extends Table
 
                     ]);
 
-            $id = $tabla->execute("SELECT MAX(id) AS m_id FROM Proyectos")->fetchAll('assoc');
+            $id = $tabla->execute("SELECT MAX(id) AS m_id FROM proyectos")->fetchAll('assoc');
             $id_pro = $id[0]['m_id'];
             for ($i=0; $i < count($tipo) ; $i++) { 
 
