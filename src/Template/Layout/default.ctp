@@ -80,11 +80,12 @@ $cakeDescription = 'SX Clima';
         'assets/themes/components/border-radius.css',
         'assets/helpers/responsive-elements.css',
         'assets/helpers/admin-responsive.css',
-       
+        'bootstrap/bootstrap.min'
         ]) ?>
    
 
     <?= $this->Html->script([
+        'jquery-3.1.1.min',
         'js-core/jquery-core.js',
         'js-core/jquery-ui-core.js',
         'js-core/jquery-ui-widget.js',
@@ -92,7 +93,9 @@ $cakeDescription = 'SX Clima';
         'js-core/jquery-ui-position.js',
         'js-core/modernizr.js',
         'js-core/jquery-cookie.js',
-        'widgets/wow/wow.js'
+        'widgets/wow/wow.js',
+        'bootbox.min'
+
 
         ]) ?>    
 
@@ -110,7 +113,14 @@ $cakeDescription = 'SX Clima';
 </head>
 <body>
     
-  
+    <?php 
+
+        if ($this->request->session()->read('Auth.User')){
+            echo $this->element('menu');
+        }
+            
+        
+     ?>
     <?= $this->Flash->render() ?>
     <!-- <div class="container clearfix"> -->
         <?= $this->fetch('content') ?>

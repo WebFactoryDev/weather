@@ -32,7 +32,7 @@
 
 <div class="center-vertical">
     <div class="center-content row">
-
+        
         <div class="col-md-3 center-margin">
             <?= $this->Flash->render('auth') ?>
             <form method="post" action="login">
