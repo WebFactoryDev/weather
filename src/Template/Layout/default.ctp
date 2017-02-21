@@ -93,6 +93,7 @@ $cakeDescription = 'SX Clima';
         'js-core/jquery-ui-position.js',
         'js-core/modernizr.js',
         'js-core/jquery-cookie.js',
+        'jquery-ui.min',
         'widgets/wow/wow.js',
         'bootbox.min'
 

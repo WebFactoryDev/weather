@@ -12,15 +12,24 @@ class ProjectsController extends AppController
 {
 	public function initialize(){
         parent::initialize();
-        $this->loadModel('Projects');
+        //$this->loadModel('Projects');
     }
 
 	public function nuevo()
     {
-    	$listaclientes = $this->Projects->getClientes();
+    	//$listaclientes = $this->Projects->getClientes();
+        $listaclientes = [['id'=> 0,'nombre_comercial'=> 'Bimbo'],
+                          ['id'=> 1,'nombre_comercial'=> 'Aceros TAMSA'],
+                          ['id'=> 2,'nombre_comercial'=> 'Google'],
+                          ['id'=> 3,'nombre_comercial'=> 'HP'],
+                          ['id'=> 4,'nombre_comercial'=> 'La Michoacana']];
     	$listaclientes = json_decode(json_encode($listaclientes,JSON_PRETTY_PRINT));
+        
 
-    	$tipos_projects = $this->Projects->getTipos();
+    	//$tipos_projects = $this->Projects->getTipos();
+        $tipos_projects = [['id' => 0, 'tipo' => 'Clima Organizacional'],
+                           ['id' => 1, 'tipo' => 'Liderazgo'],
+                           ['id' => 2, 'tipo' => 'Competencias']];
     	$tipos_projects = json_decode(json_encode($tipos_projects,JSON_PRETTY_PRINT));
 
     	$this->set('clientes',$listaclientes);
@@ -120,6 +129,21 @@ class ProjectsController extends AppController
 
     	
     }
-
+    public function obtenclientes(){
+        $this->autoRender = false;
+        /*$datos = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL","ColdFusion","Erlang","Fortran","Groovy","Haskell","Java","JavaScript","Lisp","Perl","PHP","Python","Ruby","Scala","Scheme"];*/
+        // En lugar de esto, hay que obtenerlo del modelo como un
+        // SELECT * FROM ___ WHERE nombre_comercial LIKE '%$term%'
+        $datos = [['label' => 'Bimbo', 'value'=> 0],['label' => 'Comercial Mexicana', 'value'=> 1]
+                 ,['label' => 'La michoacana', 'value'=> 2]];
+        $elget = strtolower($this->request->query('term'));
+        foreach($datos as $key => $val) {
+            $stringv = strtolower($val['label']);
+            if (strpos($stringv, $elget) !== FALSE)
+                $datos1[] = $val;
+        }
+        echo json_encode($datos1);
+    }
 
 }
+?>
