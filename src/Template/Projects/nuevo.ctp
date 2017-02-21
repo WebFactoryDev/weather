@@ -5,26 +5,36 @@
 
     // print_r($tipos);
  ?>
-    <div id="page-content-wrapper">
-        <div id="page-content">
+
+
+<?= $this->Html->script(['widgets/datepicker/datepicker.js','widgets/input-switch/inputswitch.js']) ?>
+
+
+<!-- EMPIEZA HTML -->
+
+<div id="page-content-wrapper">
+    <div id="page-content">
                     
-            <div class="container">
-                <div id="page-title">
-                    <h2>Proyectos</h2>
-                    <p>Nuevo</p>
-                    <div id="theme-options" class="admin-options">
-                    </div>
-                </div>
-            </div>
+        <div class="container">
 
+<div id="page-title">
+    <h2>Proyectos</h2>
+    <!-- <p>Nuevo</p> -->
+          
+</div>
 
-        <div class="panel">
-        <form id="newProjectForm" enctype="multipart/form-data" method="post">
-            <div class="example-box-wrapper">  
-            <br>  
+<div class="panel">
+    <div class="panel-body">
+
+        <h3 class="title-hero">
+            Nuevo
+        </h3>
+
+        <div class="example-box-wrapper">
+
+            <form class="form-horizontal bordered-row">
                 <div class="form-group">
-                    <div class="col-sm-1"></div>
-                    <label class="col-sm-1 control-label">Cliente</label>
+                    <label class="col-sm-3 control-label">Cliente</label>
                     <div class="col-sm-4">
                         <select class="form-control" name="cliente">
                             <option></option>
@@ -40,11 +50,11 @@
                     </div>
 
                 </div>
-                <br><br><br>
+
                 <div class="form-group">
-                    <div class="col-sm-1"></div>
-                        <label class="col-sm-1 control-label">Tipo</label>
+                        <label class="col-sm-3 control-label">Tipo</label>
                         <div class="col-sm-6">
+
                             <label class="checkbox-inline">
                                 <input type="checkbox" name="ckClima" id="ckClima" value="<?= $tipos[0]->id; ?>">
                                 CLIMA ORGANIZACIONAL
@@ -60,42 +70,31 @@
                           
                         </div>
                 </div>
-                <br><br><br>
                 <div class="form-group">
-                        <div class="col-sm-1"></div>
-                        <label class="col-sm-2 control-label">Instrucciones</label>
+                        <label class="col-sm-3 control-label">Instrucciones</label>
                         <div class="col-sm-6">
                             Clima Organizacional
                             <textarea id="txClima" name="txClima" rows="3" class="form-control textarea-no-resize" disabled></textarea>
                         </div>
 
                 </div>
-                <br><br><br><br><br>
-                <div class="form-group">
-                    <div class="col-sm-2"></div>
-                        <label class="col-sm-1 control-label"></label>
+                <div class="form-group" style="border-top-style:none;">
+                        <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-6">
                             Liderazgo
                             <textarea id="txLider" name="txLider" rows="3" class="form-control textarea-no-resize" disabled></textarea>
                         </div>
                 </div>
-                <br><br><br><br><br>
-                <div class="form-group">
-                    <div class="col-sm-2"></div>
-                        <label class="col-sm-1 control-label"></label>
+                <div class="form-group" style="border-top-style:none;">
+                        <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-6">
                             Competencias
                             <textarea id="txCompetencia" name="txCompetencia" rows="3" class="form-control textarea-no-resize" disabled></textarea>
                         </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                 <div class="form-group">
+                <div class="form-group">
                     
-                        <label class="col-sm-2 control-label">Reemplazo en preguntas</label>
+                        <label class="col-sm-3 control-label">Reemplazo en preguntas</label>
                         <div class="col-sm-4">
                             Sustituir palabra clave por (&lt;clave&gt;) por:
                             <br>
@@ -113,11 +112,8 @@
                                 <input type="text" name="txClave" class="form-control">
                         </div>
                 </div>
-                <br>
-                <br>
-                <br>
                 <div class="form-group">
-                            <label for="" class="col-sm-2 control-label">Duración de ejecución</label>
+                            <label for="" class="col-sm-3 control-label">Duración de ejecución</label>
 
                             <div class="col-sm-2">
                             Desde
@@ -138,39 +134,38 @@
                                 </div>
                             </div>
                 </div>
-                <br>
-                <br>
-                <br>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Orden aleatorio en encuestas</label>
+                    <label class="col-sm-3 control-label">Orden aleatorio en encuestas</label>
                     <div class="col-sm-3">
                         
                         <input id="random" name="random" type="checkbox" class="input-switch-alt" value="si">
                     </div>
                 </div>
-
-            </div>
-        </form>
-            <br>
-            <br>
-            <br>
-            <div class="col-sm-8"></div>
-            <div class="col-sm-3"><button id="guardar" class="btn btn-purple"><i class="glyph-icon icon-save"></i> Guardar</button></div>
-            <br>
-        <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label"></label>
+                    <div class="col-sm-2">
+                        <button id="cancelar" class="btn btn-danger"><i class="glyph-icon icon-times-circle" onclick="goBack()"></i> Cancelar</button>
+                    </div>
+                    <div class="col-sm-5">
+                        <button id="guardar" class="btn btn-primary"><i class="glyph-icon icon-save"></i> Guardar</button>
+                    </div>
+                </div>
+            </form>
             
-
         </div>
-        </div>
-         
-        
-       
 
+    </div> <!-- Fin container -->
 </div>
-</div>
-    
 
-<?= $this->Html->script(['widgets/datepicker/datepicker.js','widgets/input-switch/inputswitch.js']) ?>
+        </div> <!-- Fin container -->
+    </div> <!-- Fin page-content -->
+</div> <!-- fin page-content-wrapper -->
+
+
+
+<!-- FIN HTML -->
+
+
 
 <script type="text/javascript">
     /* Datepicker bootstrap */
@@ -189,6 +184,11 @@
     $(function() { "use strict";
         $('.input-switch').bootstrapSwitch();
     });
+
+    function goBack() { 
+        window.history.back();
+    }
+
 </script>
 
 <script type="text/javascript">
@@ -232,41 +232,28 @@
             
             var formData = new FormData($("#newProjectForm")[0]);
 
-                bootbox.confirm({
-                    message: "¿Estás seguro de guardar el nuevo proyecto?",
-                    buttons: {
-                        confirm: {
-                            label: 'Sí',
-                            className: 'btn-success'
-                        },
-                        cancel: {
-                            label: 'No',
-                            className: 'btn-danger'
-                        }
-                    },
-                    callback: function (result) {
-                        $.ajax({
-                            url : "/weather/projects/creaProyectos",
-                            type: 'POST',
-                            data: formData,
-                            cache: false,
-                            contentType: false,
-                            processData: false
-                        })
-                        .done(function(msg){
+                   $.ajax({
+                        url : "/weather/projects/creaProyectos",
+                        type: 'POST',
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    })
+                    .done(function(msg){
 
-                            if(msg==1)
-                            {
-                                bootbox.alert("Se ha agregado correctamente");
-                                window.location.reload();
-                            }
-                            else
-                            {
-                                bootbox.alert("Algo sali&oacute; mal, intenta m&aacute;s tarde");
-                            }
-                        });
-                    }
-                });
+                        if(msg==1)
+                        {
+                            bootbox.alert("Se ha agregado correctamente");
+                            window.location.reload();
+                        }
+                        else
+                        {
+                            bootbox.alert("Algo sali&oacute; mal, intenta m&aacute;s tarde");
+                        }
+                    });
+                    
+                
         });
            
     });

@@ -229,8 +229,8 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'Wf_clima',
-            'password' => 'hs7W4s*0',
+            'username' => 'root',
+            'password' => '',
             'database' => 'weather',
             'encoding' => 'utf8',
             'timezone' => 'UTC',

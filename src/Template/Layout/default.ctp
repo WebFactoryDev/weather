@@ -80,7 +80,7 @@ $cakeDescription = 'SX Clima';
         'assets/themes/components/border-radius.css',
         'assets/helpers/responsive-elements.css',
         'assets/helpers/admin-responsive.css',
-        'bootstrap/bootstrap.min'
+        // 'bootstrap/bootstrap.min'
         ]) ?>
    
 
