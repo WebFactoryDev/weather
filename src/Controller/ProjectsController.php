@@ -37,13 +37,20 @@ class ProjectsController extends AppController
         $this->render();
 
     }
+    public function creaProyectos__(){
+    	$this->autoRender = false;
+        //echo json_encode($_POST);
+        //echo "<pre>";
+        print_r($_POST);
+        //echo "</pre>";
+    }
 
     public function creaProyectos()
     {
     	$this->autoRender = false;
     	$project = $this->Projects->newEntity();
-    	$tipos="";
-    	$instrucciones="";
+        $tipos = $_POST['ck'];
+    	$instrucciones=[];
     	
     	$cliente="";
     	$i=0;
@@ -52,12 +59,18 @@ class ProjectsController extends AppController
     	{
     		// print_r($_POST);
 
-    		if(isset($_POST["cliente"]))
+    		if(isset($_POST["cliente_id"]))
             {
-            	$cliente = explode("*", $_POST["cliente"]);
-                $project->clientes_id=$cliente[0];
+            	/*$cliente = explode("*", $_POST["cliente"]);
+                $project->clientes_id=$cliente[0];*/
+                //$_POST["cliente"];
+                $project->clientes_id=$_POST["cliente_id"];
             }
-            if(isset($_POST["ckClima"]))
+            for($i=0;$i<count($tipos);$i++){
+                $tipon = $tipos[$i];
+                $instrucciones[] = $_POST["tx$tipon"];
+            }
+            /*if(isset($_POST["ckClima"]))
             {
                 $tipos[$i]=$_POST["ckClima"];
 
@@ -86,13 +99,14 @@ class ProjectsController extends AppController
 	                $instrucciones[$i]=$_POST["txCompetencia"];
 	            }
 	            $i++;
-            }
+            }*/
             if(isset($_POST["clave"]))
             {
             	if ($_POST["clave"]=="corto")
             	{
 
-            		$project->clave = $cliente[1];
+            		//$project->clave = $cliente[1];
+            		$project->clave = $_POST["cliente_clv"];
             	}
             	else if ($_POST["clave"]=="personalizado")
             	{
@@ -121,7 +135,7 @@ class ProjectsController extends AppController
 
             $project->estatus = "nuevo";
 
-           	$return = $this->Projects->insertProject($project,$tipos,$instrucciones);
+           	//$return = $this->Projects->insertProject($project,$tipos,$instrucciones);
            
            	echo $return;
      
@@ -134,8 +148,9 @@ class ProjectsController extends AppController
         /*$datos = ["ActionScript","AppleScript","Asp","BASIC","C","C++","Clojure","COBOL","ColdFusion","Erlang","Fortran","Groovy","Haskell","Java","JavaScript","Lisp","Perl","PHP","Python","Ruby","Scala","Scheme"];*/
         // En lugar de esto, hay que obtenerlo del modelo como un
         // SELECT * FROM ___ WHERE nombre_comercial LIKE '%$term%'
-        $datos = [['label' => 'Bimbo', 'value'=> 0],['label' => 'Comercial Mexicana', 'value'=> 1]
-                 ,['label' => 'La michoacana', 'value'=> 2]];
+        $datos = [['label' => 'Bimbo', 'value'=> 0, 'clave' =>'Bimbo'],
+                  ['label' => 'Comercial Mexicana', 'value'=> 1, 'clave' =>'COMER'],
+                  ['label' => 'La michoacana', 'value'=> 2, 'clave' =>'mich']];
         $elget = strtolower($this->request->query('term'));
         foreach($datos as $key => $val) {
             $stringv = strtolower($val['label']);

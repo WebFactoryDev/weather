@@ -33,6 +33,8 @@
                         <button class="btn btn-purple">Agregar nuevo cliente</button>
                     </div>
                 </div>
+                <input type="hidden" id="cliente_id" name="cliente_id">
+                <input type="hidden" id="cliente_clv" name="cliente_clv">
                 <br><br><br>
                 <div class="form-group">
                     <div class="col-sm-1"></div>
@@ -45,7 +47,7 @@
                                     $idname = "ck$idtipo";
                             ?>
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="<?=$idname?>" id="<?=$idname?>" value="<?=$idtipo?>">
+                                <input type="checkbox" name="ck[]" id="<?=$idname?>" value="<?=$idtipo?>">
                                 <?=$nombre?>
                             </label>
                             <?php
@@ -192,7 +194,17 @@
         // lentamente, o haya que usar otro modo de llamar a ajax/json.
         
         $( "#cliente" ).autocomplete({
-            source: "/weather/projects/obtenclientes"
+            source: "/weather/projects/obtenclientes",
+            focus: function(ev, ui){
+                //$("#cliente").val(ui.item.label);
+                return false;
+            },
+            select: function(ev, ui){
+                $("#cliente").val(ui.item.label);
+                $("#cliente_id").val(ui.item.value);
+                $("#cliente_clv").val(ui.item.clave);
+                return false;
+            }
         });
 
         <?php
@@ -243,8 +255,8 @@
                             processData: false
                         })
                         .done(function(msg){
-
-                            if(msg==1)
+                            alert("Esto recibí:"+msg);
+                            /*if(msg==1)
                             {
                                 bootbox.alert("Se ha agregado correctamente");
                                 window.location.reload();
@@ -252,7 +264,7 @@
                             else
                             {
                                 bootbox.alert("Algo sali&oacute; mal, intenta m&aacute;s tarde");
-                            }
+                            }*/
                         });
                     }
                 });
