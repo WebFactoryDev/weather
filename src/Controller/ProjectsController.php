@@ -181,5 +181,13 @@ class ProjectsController extends AppController
         // ese es el ejemplo de lectura.
         echo json_encode(['proyectos' => $proysactiv]);
     }
+    public function insertador(){
+        ///// ATENCION /////
+        // funcion que se tiene que usar solo una vez
+        // despues comentarla o eliminarla.
+        $this->autoRender = false;
+        $this->Projects->insertatabla();
+        echo "Datos insertados...";
+    }
 }
 ?>

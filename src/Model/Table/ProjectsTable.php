@@ -9,11 +9,11 @@ class ProjectsTable extends Table
 {
     //public function initialize(){}
     
-    public function getClientes(){
+    public function getclientes(){
         //$lc = [[10,'BBVA Bancomer'],[11,'Google'],[12,'Pepe y Tonhio SA']];
         $tabla = ConnectionManager::get('default');
         $lc = $tabla->execute("SELECT id,nombre_comercial FROM clientes")->fetchAll('assoc');
-        //$lc = TableRegistry::get('Clientes')->find()->toArray();
+        //$lc = TableRegistry::get('clientes')->find()->toArray();
         return $lc;
     }
     public function getClienteId($id){
@@ -29,37 +29,58 @@ class ProjectsTable extends Table
         $tipos = $tabla->execute("SELECT id,tipo FROM tipos")->fetchAll('assoc');
         return $tipos;
     }
-    public function dartabla(){
+    public function insertatabla(){
+        ///////// ATENCION ///////////
+        // Esta funcion solo se usara una vez.
+        // Comentarla o eliminarla.
+        $latabla = [];
+        $latabla[] = ['id'=> 1,'f_inicio'=> '2017-01-01','f_final'=> '2017-03-05','estatus'=> 'Diseñando','clave'=>'google','clientes_id'=>1];
+        $latabla[] = ['id'=> 2,'f_inicio'=> '2016-11-30','f_final'=> '2017-02-22','estatus'=> 'listo','clave'=>'BBVA','clientes_id'=>1];
+        $latabla[] = ['id'=> 3,'f_inicio'=> '2016-12-01','f_final'=> '2017-02-03','estatus'=> 'listo','clave'=>'ACTN','clientes_id'=>1];
+        $latabla[] = ['id'=> 4,'f_inicio'=> '2017-01-01','f_final'=> '2017-03-05','estatus'=> 'Ejecución','clave'=>'bodega','clientes_id'=>1];
+        $connection = ConnectionManager::get('default');
+        foreach($latabla as $reg){
+            $connection->insert('proyectos', $reg , ['created' => 'datetime']);
+        }
+    }
+    /*public function dartabla(){
         // Funcion solo para pruebas.
+        // ya no se va a usar.
         $latabla = [];
         $latabla[] = ['id'=> 1,'nombre_comercial'=> 'Google','tipo'=> 'Clima','f_inicio'=> '2017-01-01','f_final'=> '2017-03-05','estatus'=> 'Diseñando'];
         $latabla[] = ['id'=> 2,'nombre_comercial'=> 'Bancomer','tipo'=> 'Clima|Liderazgo|Competencias','f_inicio'=> '2016-11-30','f_final'=> '2017-02-22','estatus'=> 'listo'];
         $latabla[] = ['id'=> 3,'nombre_comercial'=> 'Actinver','tipo'=> 'Competencias','f_inicio'=> '2016-12-01','f_final'=> '2017-02-03','estatus'=> 'listo'];
         $latabla[] = ['id'=> 4,'nombre_comercial'=> 'Bodega Aurrera','tipo'=> 'Liderazgo','f_inicio'=> '2017-01-01','f_final'=> '2017-03-05','estatus'=> 'Ejecución'];
         return $latabla;
-    }
+    }*/
     public function getProys($activo = false){
         $fecha = date("Y-m-d");
-        $latabla = $this->dartabla();
+        // ya no vamos a usar esta funcion.
+        //$latabla = $this->dartabla();
+        $tabla = ConnectionManager::get('default');
         $cond = "";
         if($activo==true){
-            $cond = "WHERE f_final <= $fecha";
+            $cond = "WHERE f_final <= '$fecha'";
             // Emularemos tal busqueda.
-            $tabla1 = [];
+            /*$tabla1 = [];
             foreach($latabla as $reg){
                 // Comparar las fechas como cadenas.
                 if(strcmp($fecha,$reg['f_final'])<=0)
                     $tabla1[] = $reg;
-            }
-        } else {
+            }*/
+        } 
+        /*else {
             $tabla1 = $latabla;
-        }
+        }*/
+        $consultabd = "SELECT * FROM proyectos $cond";
+        $tabla1 = $tabla->execute($consultabd)->fetchAll('assoc');        
+        
         return $tabla1;
     }
     public function insertacl($ncomercial){
         $tabla = ConnectionManager::get('default');
         // Saber si ya existe esa razon comercial.
-        $reg = $tabla->execute("SELECT * FROM Clientes WHERE nombre_comercial='$ncomercial'")->fetchAll('assoc');
+        $reg = $tabla->execute("SELECT * FROM clientes WHERE nombre_comercial='$ncomercial'")->fetchAll('assoc');
         if(count($reg)>0){
             // Ya existe ese nombre
             return -$reg[0]['id'];
@@ -71,7 +92,9 @@ class ProjectsTable extends Table
             $id0++;
             
             // Ahora si lo va a insertar.
-            $tabla->execute("INSERT INTO 'clientes'('id', 'nombre_comercial', 'razon_social', 'rfc') VALUES ($id0,'$ncomercial','','');");
+            //$tabla->execute("INSERT INTO 'clientes'('id', 'nombre_comercial', 'razon_social', 'rfc') VALUES ($id0,'$ncomercial','','');");
+            // Le quite las comillas
+            $tabla->execute("INSERT INTO clientes(id, nombre_comercial, razon_social, rfc) VALUES ($id0,'$ncomercial','','');");
         }
         return $id0;
     }
@@ -117,9 +140,9 @@ class ProjectsTable extends Table
     }
     public function getajaxclientes($term){
         $tabla = ConnectionManager::get('default');
-        $reg = $tabla->execute("SELECT id,nombre_comercial FROM Clientes WHERE LCASE(nombre_comercial) LIKE '%$term%'")->fetchAll('assoc');
-        //$reg = $tabla->execute("SELECT id,nombre_comercial,LCASE(nombre_comercial) AS nclower FROM Clientes WHERE nclower LIKE '%$term%'")->fetchAll('assoc');
-        //$reg = $tabla->execute("SELECT id,nombre_comercial FROM Clientes")->fetchAll('assoc');
+        $reg = $tabla->execute("SELECT id,nombre_comercial FROM clientes WHERE LCASE(nombre_comercial) LIKE '%$term%'")->fetchAll('assoc');
+        //$reg = $tabla->execute("SELECT id,nombre_comercial,LCASE(nombre_comercial) AS nclower FROM clientes WHERE nclower LIKE '%$term%'")->fetchAll('assoc');
+        //$reg = $tabla->execute("SELECT id,nombre_comercial FROM clientes")->fetchAll('assoc');
         return $reg;
     }
 }
