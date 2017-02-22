@@ -157,6 +157,9 @@
                         <button id="guardar" class="btn btn-primary"><i class="glyph-icon icon-save"></i> Guardar</button>
                     </div>
                 </div>
+                
+                 <input id="cliente_id" name="cliente_id" type="hidden">
+                <input id="cliente_clv" name="cliente_clv" type="hidden">
             </form>
             
         </div>
