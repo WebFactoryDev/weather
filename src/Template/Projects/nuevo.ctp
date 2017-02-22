@@ -61,7 +61,7 @@
                                     $idname = "ck$idtipo";
                             ?>
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="<?=$idname?>" id="<?=$idname?>" value="<?=$idtipo?>">
+                                <input type="checkbox" name="ck[]" id="<?=$idname?>" value="<?=$idtipo?>">
                                 <?=$nombre?>
                             </label>
                             <?php
@@ -201,7 +201,17 @@
         // lentamente, o haya que usar otro modo de llamar a ajax/json.
         
         $( "#cliente" ).autocomplete({
-            source: "/weather/projects/obtenclientes"
+            source: "/weather/projects/obtenclientes",
+            focus: function(ev, ui){
+                //$("#cliente").val(ui.item.label);
+                return false;
+            },
+            select: function(ev, ui){
+                $("#cliente").val(ui.item.label);
+                $("#cliente_id").val(ui.item.value);
+                $("#cliente_clv").val(ui.item.clave);
+                return false;
+            }
         });
 
         <?php
