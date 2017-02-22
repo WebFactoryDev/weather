@@ -206,7 +206,7 @@
         // lentamente, o haya que usar otro modo de llamar a ajax/json.
         
         $( "#cliente" ).autocomplete({
-            source: "/weather/projects/obtenclientes",
+            source: "/projects/obtenclientes",
             focus: function(ev, ui){
                 //$("#cliente").val(ui.item.label);
                 return false;
@@ -256,7 +256,7 @@
             var formData = new FormData($("#newProjectForm")[0]);
 
                    $.ajax({
-                        url : "/weather/projects/creaProyectos",
+                        url : "/projects/creaProyectos",
                         type: 'POST',
                         data: formData,
                         cache: false,
