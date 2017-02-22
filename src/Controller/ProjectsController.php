@@ -22,10 +22,10 @@ class ProjectsController extends AppController
                           ['id'=> 4,'nombre_comercial'=> 'La Michoacana']];*/
     	$listaclientes = json_decode(json_encode($listaclientes,JSON_PRETTY_PRINT));
         
-    	//$tipos_projects = $this->Projects->getTipos();
-        $tipos_projects = [['id' => 0, 'tipo' => 'Clima Organizacional'],
+    	$tipos_projects = $this->Projects->getTipos();
+        /*$tipos_projects = [['id' => 0, 'tipo' => 'Clima Organizacional'],
                            ['id' => 1, 'tipo' => 'Liderazgo'],
-                           ['id' => 2, 'tipo' => 'Competencias']];
+                           ['id' => 2, 'tipo' => 'Competencias']];*/
     	$tipos_projects = json_decode(json_encode($tipos_projects,JSON_PRETTY_PRINT));
     	$this->set('clientes',$listaclientes);
     	$this->set('tipos',$tipos_projects);
