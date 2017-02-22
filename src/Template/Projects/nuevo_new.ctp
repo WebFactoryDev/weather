@@ -5,36 +5,26 @@
 
     // print_r($tipos);
  ?>
-
-
-<?= $this->Html->script(['widgets/datepicker/datepicker.js','widgets/input-switch/inputswitch.js']) ?>
-
-
-<!-- EMPIEZA HTML -->
-
-<div id="page-content-wrapper">
-    <div id="page-content">
+    <div id="page-content-wrapper">
+        <div id="page-content">
                     
-        <div class="container">
+            <div class="container">
+                <div id="page-title">
+                    <h2>Proyectos</h2>
+                    <p>Nuevo</p>
+                    <div id="theme-options" class="admin-options">
+                    </div>
+                </div>
+            </div>
 
-<div id="page-title">
-    <h2>Proyectos</h2>
-    <!-- <p>Nuevo</p> -->
-          
-</div>
 
-<div class="panel">
-    <div class="panel-body">
-
-        <h3 class="title-hero">
-            Nuevo
-        </h3>
-
-        <div class="example-box-wrapper">
-
-            <form class="form-horizontal bordered-row">
+        <div class="panel">
+        <form id="newProjectForm" enctype="multipart/form-data" method="post">
+            <div class="example-box-wrapper">  
+            <br>  
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Cliente</label>
+                    <div class="col-sm-1"></div>
+                    <label class="col-sm-1 control-label">Cliente</label>
                     <div class="col-sm-4">
                         <select class="form-control" name="cliente">
                             <option></option>
@@ -50,9 +40,10 @@
                     </div>
 
                 </div>
-
+                <br><br><br>
                 <div class="form-group">
-                        <label class="col-sm-3 control-label">Tipo</label>
+                    <div class="col-sm-1"></div>
+                        <label class="col-sm-1 control-label">Tipo</label>
                         <div class="col-sm-6">
                             <?php
                                 for($k=0;$k<count($tipos);$k++){
@@ -70,17 +61,19 @@
                         </div>
                 </div>
                 <?php
-                   
+                    $clasediv1 = "col-sm-1";
+                    $clasediv2 = "col-sm-2";
                     $primerlabel = "Instrucciones";
                     $primerbr = "";
                     for($k=0;$k<count($tipos);$k++){
                         $idtipo = $tipos[$k]->id;
                         $nombre = $tipos[$k]->tipo;
-                        
+                        echo $primerbr;
                 ?>
+                <br><br><br>
                 <div class="form-group">
-        
-                        <label class="col-sm-3 control-label"><?=$primerlabel?></label>
+                        <div class="<?=$clasediv1?>"></div>
+                        <label class="<?=$clasediv2?> control-label"><?=$primerlabel?></label>
                         <div class="col-sm-6">
                             <?=$nombre?>
                             <textarea id="tx<?=$idtipo?>" name="tx<?=$idtipo?>" rows="3" class="form-control textarea-no-resize" disabled></textarea>
@@ -88,14 +81,20 @@
 
                 </div>
                 <?php
-                    
+                        $clasediv1 = "col-sm-2";
+                        $clasediv2 = "col-sm-1";
                         $primerlabel = "";
+                        $primerbr = "<br><br>";
                     }
-                    
                 ?>
-                <div class="form-group">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                 <div class="form-group">
                     
-                        <label class="col-sm-3 control-label">Reemplazo en preguntas</label>
+                        <label class="col-sm-2 control-label">Reemplazo en preguntas</label>
                         <div class="col-sm-4">
                             Sustituir palabra clave por (&lt;clave&gt;) por:
                             <br>
@@ -113,8 +112,11 @@
                                 <input type="text" name="txClave" class="form-control">
                         </div>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Duración de ejecución</label>
+                            <label for="" class="col-sm-2 control-label">Duración de ejecución</label>
 
                             <div class="col-sm-2">
                             Desde
@@ -135,38 +137,39 @@
                                 </div>
                             </div>
                 </div>
+                <br>
+                <br>
+                <br>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Orden aleatorio en encuestas</label>
+                    <label class="col-sm-2 control-label">Orden aleatorio en encuestas</label>
                     <div class="col-sm-3">
                         
                         <input id="random" name="random" type="checkbox" class="input-switch-alt" value="si">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-5 control-label"></label>
-                    <div class="col-sm-2">
-                        <button id="cancelar" class="btn btn-danger"><i class="glyph-icon icon-times-circle" onclick="goBack()"></i> Cancelar</button>
-                    </div>
-                    <div class="col-sm-5">
-                        <button id="guardar" class="btn btn-primary"><i class="glyph-icon icon-save"></i> Guardar</button>
-                    </div>
-                </div>
-            </form>
+
+            </div>
+        </form>
+            <br>
+            <br>
+            <br>
+            <div class="col-sm-8"></div>
+            <div class="col-sm-3"><button id="guardar" class="btn btn-purple"><i class="glyph-icon icon-save"></i> Guardar</button></div>
+            <br>
+        <div class="panel-body">
             
+
         </div>
+        </div>
+         
+        
+       
 
-    </div> <!-- Fin container -->
 </div>
+</div>
+    
 
-        </div> <!-- Fin container -->
-    </div> <!-- Fin page-content -->
-</div> <!-- fin page-content-wrapper -->
-
-
-
-<!-- FIN HTML -->
-
-
+<?= $this->Html->script(['widgets/datepicker/datepicker.js','widgets/input-switch/inputswitch.js']) ?>
 
 <script type="text/javascript">
     /* Datepicker bootstrap */
@@ -185,25 +188,10 @@
     $(function() { "use strict";
         $('.input-switch').bootstrapSwitch();
     });
-
-    function goBack() { 
-        window.history.back();
-    }
-
 </script>
 
 <script type="text/javascript">
     $(document).ready(function(){
-        
-        // Omar170221: Hay que resolver la cuestion de que es lento
-        // igual es la velocidad adecuada para meter mas caracteres
-        // O puede ser porque el sistema cakePHP distribuye el controlador
-        // lentamente, o haya que usar otro modo de llamar a ajax/json.
-        
-        $( "#cliente" ).autocomplete({
-            source: "/weather/projects/obtenclientes"
-        });
-
         <?php
             // OSG170220: No estoy de acuerdo con esto pero las voy a
             // generar asi.
@@ -218,7 +206,7 @@
                     \$('#tx$idtipo').val('');
                     }
                 });
-                ";
+                "
             }
         ?>
 
@@ -230,28 +218,41 @@
             
             var formData = new FormData($("#newProjectForm")[0]);
 
-                   $.ajax({
-                        url : "/weather/projects/creaProyectos",
-                        type: 'POST',
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false
-                    })
-                    .done(function(msg){
+                bootbox.confirm({
+                    message: "¿Estás seguro de guardar el nuevo proyecto?",
+                    buttons: {
+                        confirm: {
+                            label: 'Sí',
+                            className: 'btn-success'
+                        },
+                        cancel: {
+                            label: 'No',
+                            className: 'btn-danger'
+                        }
+                    },
+                    callback: function (result) {
+                        $.ajax({
+                            url : "/weather/projects/creaProyectos",
+                            type: 'POST',
+                            data: formData,
+                            cache: false,
+                            contentType: false,
+                            processData: false
+                        })
+                        .done(function(msg){
 
-                        if(msg==1)
-                        {
-                            bootbox.alert("Se ha agregado correctamente");
-                            window.location.reload();
-                        }
-                        else
-                        {
-                            bootbox.alert("Algo sali&oacute; mal, intenta m&aacute;s tarde");
-                        }
-                    });
-                    
-                
+                            if(msg==1)
+                            {
+                                bootbox.alert("Se ha agregado correctamente");
+                                window.location.reload();
+                            }
+                            else
+                            {
+                                bootbox.alert("Algo sali&oacute; mal, intenta m&aacute;s tarde");
+                            }
+                        });
+                    }
+                });
         });
            
     });
