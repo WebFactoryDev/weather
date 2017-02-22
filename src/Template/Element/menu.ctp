@@ -23,7 +23,7 @@
         <div id="header-nav-left">
         <div class="user-account-btn dropdown">
             <a href="#" title="My Account" class="user-profile clearfix" data-toggle="dropdown">
-                <img width="28" src="/weather/img/image-resources/gravatar.jpg" alt="Profile image">
+                <img width="28" src="/img/image-resources/gravatar.jpg" alt="Profile image">
                 <span>Roberto</span>
                 <i class="glyph-icon icon-angle-down"></i>
             </a>
