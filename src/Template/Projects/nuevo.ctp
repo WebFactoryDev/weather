@@ -157,6 +157,9 @@
                         <button id="guardar" class="btn btn-primary"><i class="glyph-icon icon-save"></i> Guardar</button>
                     </div>
                 </div>
+                
+                 <input id="cliente_id" name="cliente_id" type="hidden">
+                <input id="cliente_clv" name="cliente_clv" type="hidden">
             </form>
             
         </div>
@@ -206,7 +209,7 @@
         // lentamente, o haya que usar otro modo de llamar a ajax/json.
         
         $( "#cliente" ).autocomplete({
-            source: "/weather/projects/obtenclientes",
+            source: "/projects/obtenclientes",
             focus: function(ev, ui){
                 //$("#cliente").val(ui.item.label);
                 return false;
@@ -256,7 +259,7 @@
             var formData = new FormData($("#newProjectForm")[0]);
 
                    $.ajax({
-                        url : "/weather/projects/creaProyectos",
+                        url : "/projects/creaProyectos",
                         type: 'POST',
                         data: formData,
                         cache: false,

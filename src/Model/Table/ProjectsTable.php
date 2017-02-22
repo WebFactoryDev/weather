@@ -141,8 +141,13 @@ class ProjectsTable extends Table
     public function getajaxclientes($term){
         $tabla = ConnectionManager::get('default');
         $reg = $tabla->execute("SELECT id,nombre_comercial FROM clientes WHERE LCASE(nombre_comercial) LIKE '%$term%'")->fetchAll('assoc');
+<<<<<<< HEAD
         //$reg = $tabla->execute("SELECT id,nombre_comercial,LCASE(nombre_comercial) AS nclower FROM clientes WHERE nclower LIKE '%$term%'")->fetchAll('assoc');
         //$reg = $tabla->execute("SELECT id,nombre_comercial FROM clientes")->fetchAll('assoc');
+=======
+        //$reg = $tabla->execute("SELECT id,nombre_comercial,LCASE(nombre_comercial) AS nclower FROM Clientes WHERE nclower LIKE '%$term%'")->fetchAll('assoc');
+        //$reg = $tabla->execute("SELECT id,nombre_comercial FROM Clientes")->fetchAll('assoc');
+>>>>>>> db70af3562560d19ecc478ebd18ba943ff0cc1b5
         return $reg;
     }
 }
