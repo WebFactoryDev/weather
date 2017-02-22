@@ -7,9 +7,19 @@
  ?>
 
 
-<?= $this->Html->script(['widgets/datepicker/datepicker.js','widgets/input-switch/inputswitch.js']) ?>
+<?= $this->Html->script(['widgets/datepicker/datepicker.js','widgets/input-switch/inputswitch.js','dpicker_mx.js']) ?>
 
+<script>
+    $(function() {
+        $.datepicker.setDefaults($.datepicker.regional['es-MX']);
 
+        $('.bootstrap-datepicker').datepicker({
+                        setDate: '25/02/2013'
+                        , altField: '#fecha_texto'
+                        , altFormat: "DD, d 'de' MM 'de' yy"
+                    });
+    });
+</script>
 <!-- EMPIEZA HTML -->
 
 <div id="page-content-wrapper">
@@ -106,7 +116,7 @@
                         
                         </div>
                         <div class="col-sm-2">
-                                <input type="text" name="txClave" class="form-control">
+                                <input id="txClave" type="text" name="txClave" class="form-control" disabled>
                         </div>
                 </div>
                 <div class="form-group">
@@ -163,10 +173,9 @@
 <!-- FIN HTML -->
 
 
-
 <script type="text/javascript">
     /* Datepicker bootstrap */
-
+    
     $(function() { "use strict";
         $('.bootstrap-datepicker').bsdatepicker({
             format: 'yyyy-mm-dd'
@@ -230,6 +239,16 @@
 
         $("switch-on").change(function(){
             $('#random').prop('checked', true);
+        });
+
+        $('input:radio[name="clave"]').change(function(){
+            if($(this).val() == 'personalizado'){
+               $('#txClave').prop('disabled', false);
+            }
+            else
+            {
+                $('#txClave').prop('disabled', true);
+            }
         });
 
         $("#guardar").click(function(){
