@@ -5,14 +5,14 @@
         <div id="page-header" class="bg-gradient-9">
         <div id="mobile-navigation">
             <button id="nav-toggle" class="collapsed" data-toggle="collapse" data-target="#page-sidebar"><span></span></button>
-            <a href="index.html" class="logo-content-small" title="MonarchUI"></a>
+            <a href="#" class="logo-content-small" title="MonarchUI"></a>
         </div>
         <div id="header-logo" class="logo-bg">
-            <a href="index.html" class="logo-content-big" title="MonarchUI">
+            <a href="#" class="logo-content-big" title="MonarchUI">
                 Monarch <i>UI</i>
                 <span>The perfect solution for user interfaces</span>
             </a>
-            <a href="index.html" class="logo-content-small" title="MonarchUI">
+            <a href="#" class="logo-content-small" title="MonarchUI">
                 Monarch <i>UI</i>
                 <span>The perfect solution for user interfaces</span>
             </a>
@@ -32,7 +32,7 @@
                     <div class="login-box clearfix">
                         <div class="user-img">
                             <a href="#" title="" class="change-img">Change photo</a>
-                            <img src="/weather/img/image-resources/gravatar.jpg" alt="">
+                            <img src="/img/image-resources/gravatar.jpg" alt="">
                         </div>
                         <div class="user-info">
                             <span>
@@ -83,7 +83,7 @@
    
     <ul id="sidebar-menu">
     <li>
-        <a href="index.html" title="Admin Dashboard">
+        <a href="#" title="Admin Dashboard">
             <i class="glyph-icon icon-linecons-tv"></i>
             <span>Dashboard</span>
         </a>
@@ -97,7 +97,7 @@
         <div class="sidebar-submenu">
 
             <ul>
-                <li><a href="/weather/projects/nuevo" title="Nuevo"><span>Nuevo</span></a></li>
+                <li><a href="/projects/nuevo" title="Nuevo"><span>Nuevo</span></a></li>
                 <li><a href="#" title="Activos"><span>Activos</span></a></li>
                 <li><a href="#" title="Hist&oacute;rico"><span>Hist&oacute;rico</span></a></li>
                 
