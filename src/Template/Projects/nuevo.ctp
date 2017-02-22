@@ -36,13 +36,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Cliente</label>
                     <div class="col-sm-4">
-                        <select class="form-control" name="cliente">
-                            <option></option>
-
-                            <?php foreach ($clientes as $key => $value) { ?>
-                                <option value="<?= $value->id.'*'.$value->nombre_comercial; ?>"><?= $value->nombre_comercial; ?></option>
-                            <?php } ?>
-                        </select>
+                       
+                        <input class="form-control" id="cliente" name="cliente">
+                       
                     </div>
                     <div class="col-sm-1"></div>
                     <div class="col-sm-2">
