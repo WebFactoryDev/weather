@@ -33,7 +33,7 @@ class ProjectsTable extends Table
         // Funcion solo para pruebas.
         $latabla = [];
         $latabla[] = ['id'=> 1,'nombre_comercial'=> 'Google','tipo'=> 'Clima','f_inicio'=> '2017-01-01','f_final'=> '2017-03-05','estatus'=> 'Diseñando'];
-        $latabla[] = ['id'=> 2,'nombre_comercial'=> 'Bancomer','tipo'=> 'M_Cli_Lider_Comp','f_inicio'=> '2016-11-30','f_final'=> '2017-02-22','estatus'=> 'listo'];
+        $latabla[] = ['id'=> 2,'nombre_comercial'=> 'Bancomer','tipo'=> 'Clima|Liderazgo|Competencias','f_inicio'=> '2016-11-30','f_final'=> '2017-02-22','estatus'=> 'listo'];
         $latabla[] = ['id'=> 3,'nombre_comercial'=> 'Actinver','tipo'=> 'Competencias','f_inicio'=> '2016-12-01','f_final'=> '2017-02-03','estatus'=> 'listo'];
         $latabla[] = ['id'=> 4,'nombre_comercial'=> 'Bodega Aurrera','tipo'=> 'Liderazgo','f_inicio'=> '2017-01-01','f_final'=> '2017-03-05','estatus'=> 'Ejecución'];
         return $latabla;

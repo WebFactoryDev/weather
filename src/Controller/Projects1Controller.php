@@ -159,6 +159,37 @@ class ProjectsController extends AppController
         }
         echo json_encode($datos1);
     }
+    public function darloscampospr(){
+        $this->autoRender = false;
+        // Esta serviría para dar los campos en formato json.
+        // ignoro si es util o puede quitarse.
+        $colsdb = ['id','nombre_comercial','tipo','f_inicio','f_final','estatus'];
+        echo json_encode($colsdb);
+    }
+    public function muestrajsonact(){
+        $this->autoRender = false;
+        $proysactiv = $this->Projects->getProys(true);
+        
+        // escribir el json de #proysactiv.
+        // DataTables.js pide un prefijo, que por ejemplo, si
+        // es 'proyectos', entonces lo pediria asi:
+        /*$(document).ready(function() {
+            $('#example').DataTable( {
+                "ajax": "weather/projects/muestrajsonact",
+                "columns": [
+                    { "proyectos": "id" },
+                    { "proyectos": "nombre_comercial" },
+                    { "proyectos": "tipo" },
+                    { "proyectos": "f_inicio" },
+                    { "proyectos": "f_final" },
+                    { "proyectos": "estatus" }
+                ]
+            } );
+        } );
+        */
+        // ese es el ejemplo de lectura.
+        echo json_encode(['proyectos' => $proysactiv]);
+    }
 
 }
 ?>

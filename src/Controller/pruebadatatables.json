@@ -1,0 +1,24 @@
+{
+"proyectos":[
+    {"id":1,
+     "nombre_comercial":"Google",
+     "tipo":"Clima",
+     "f_inicio":"2017-01-01",
+     "f_final":"2017-03-05",
+     "estatus":"Dise\u00f1ando"
+    },
+    {"id":2,
+     "nombre_comercial":"Bancomer",
+     "tipo":"Clima|Liderazgo|Competencias",
+     "f_inicio":"2016-11-30",
+     "f_final":"2017-02-22",
+     "estatus":"listo"},
+    {"id":4,
+     "nombre_comercial":"Bodega Aurrera",
+     "tipo":"Liderazgo",
+     "f_inicio":"2017-01-01",
+     "f_final":"2017-03-05",
+     "estatus":"Ejecuci\u00f3n"
+    }
+]
+}
